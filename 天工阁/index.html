@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>天工格</title>
+  <!-- 方式1：使用CDN + 异步加载 -->
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <div id="app">正在初始化...</div>
+
+  <script>
+    // 方式2：等待库加载完成的专业方案
+    function initApp() {
+      // 安全检测库是否存在
+      if (typeof supabase === 'undefined') {
+        throw new Error('Supabase库未加载，请检查网络或URL');
+      }
+
+      // 初始化客户端（使用新变量名避免冲突）
+      const db = supabase.createClient(
+        'https://zbrcaufavhzxzxrbaqmb.supabase.co',
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpicmNhdWZhdmh6eHp4cmJhcW1iIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDY4OTU0NTgsImV4cCI6MjA2MjQ3MTQ1OH0.kysLX2wm7AC7D2Mr5SCykWnGF_xY7GGeR5EMuaxAKVk',
+        {
+          auth: {
+            persistSession: true,
+            autoRefreshToken: true
+          }
+        }
+      );
+
+      // 测试连接
+      db.from('pages').select('*').limit(1)
+        .then(({ data, error }) => {
+          const appEl = document.getElementById('app');
+          if (error) {
+            appEl.innerHTML = `<p style="color:red">连接错误: ${error.message}</p>`;
+          } else {
+            appEl.textContent = `成功连接，首条数据: ${JSON.stringify(data[0]?.title)}`;
+          }
+        });
+    }
+
+    // 三种启动方式确保执行
+    if (document.readyState === 'complete') {
+      initApp(); // 文档已加载
+    } else {
+      window.addEventListener('load', initApp); // 等待所有资源加载
+      document.addEventListener('DOMContentLoaded', initApp); // 兼容方案
+    }
+  </script>
+</body>
+</html>
