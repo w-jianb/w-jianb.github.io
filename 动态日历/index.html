@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动态日历 - 农历节日显示</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="calendar-container">
+        <div class="calendar-header">
+            <h1 id="current-year-month"></h1>
+            <div class="navigation">
+                <button id="prev-month">上个月</button>
+                <button id="today">今天</button>
+                <button id="next-month">下个月</button>
+            </div>
+        </div>
+        
+        <div class="weekdays">
+            <div>日</div>
+            <div>一</div>
+            <div>二</div>
+            <div>三</div>
+            <div>四</div>
+            <div>五</div>
+            <div>六</div>
+        </div>
+        
+        <div class="days" id="calendar-days"></div>
+        
+        <!-- <div class="legend">
+            <div class="legend-item">
+                <span class="legend-color solar"></span>
+                <span>公历日期</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-color lunar"></span>
+                <span>农历日期</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-color festival"></span>
+                <span>节日/节气</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-color today"></span>
+                <span>今天</span>
+            </div>
+        </div> -->
+    </div>
+    
+    <script src="lunar.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
