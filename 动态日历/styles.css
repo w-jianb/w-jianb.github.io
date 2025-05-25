@@ -1,3 +1,4 @@
+/* 基础样式 */
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f5f5f5;
@@ -16,19 +17,32 @@ body {
     width: 100%;
     max-width: 800px;
     padding: 20px;
+    overflow: hidden;
+    transition: height 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+    will-change: height;
 }
 
+/* 头部样式 */
 .calendar-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+    position: relative;
+    z-index: 10;
 }
 
 .calendar-header h1 {
     margin: 0;
     color: #333;
     font-size: 24px;
+    transition: all 0.3s ease;
+}
+
+.navigation {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
 .navigation button {
@@ -37,19 +51,27 @@ body {
     color: white;
     padding: 8px 16px;
     text-align: center;
-    text-decoration: none;
-    display: inline-block;
     font-size: 14px;
-    margin: 0 5px;
     cursor: pointer;
     border-radius: 4px;
-    transition: background-color 0.3s;
+    transition: all 0.3s;
+    white-space: nowrap;
 }
 
 .navigation button:hover {
     background-color: #45a049;
+    transform: translateY(-2px);
 }
 
+.navigation button#toggle-view {
+    background-color: #2196F3;
+}
+
+.navigation button#toggle-view:hover {
+    background-color: #0b7dda;
+}
+
+/* 星期样式 */
 .weekdays {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
@@ -57,22 +79,174 @@ body {
     font-weight: bold;
     margin-bottom: 10px;
     color: #555;
+    transition: all 0.3s;
+}
+
+.days-wrapper {
+    min-height: 400px;
+    position: relative;
 }
 
 .days {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 5px;
+    position: relative;
+    transition: all 0.4s;
 }
 
+/* 周视图样式 */
+.week-view .weekdays {
+    display: grid;
+}
+
+.week-indicator {
+    display: none;
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #333;
+    font-size: 16px;
+    padding: 8px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+}
+
+.week-view .week-indicator {
+    display: block;
+}
+
+/* 生日样式 */
+.birthday {
+    font-size: 12px;
+    color: #e91e63;
+    font-weight: bold;
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+/* 调整其他元素位置 */
+.lunar-date {
+    bottom: 5px;
+}
+
+.festival {
+    bottom: 5px;
+}
+
+/* 动画效果 */
+.view-switch-animation {
+    animation: viewSwitch 0.3s ease;
+}
+
+.pre-animate .day {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.day-animate {
+    animation: dayAppear 0.3s ease forwards;
+}
+
+@keyframes viewSwitch {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.95); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes dayAppear {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 月份切换动画 */
+.days.slide-out-left {
+    animation: slideOutToLeft 0.4s ease forwards;
+}
+
+.days.slide-out-right {
+    animation: slideOutToRight 0.4s ease forwards;
+}
+
+.days.slide-in-left {
+    animation: slideInFromLeft 0.4s ease forwards;
+}
+
+.days.slide-in-right {
+    animation: slideInFromRight 0.4s ease forwards;
+}
+
+.days.fade-out {
+    animation: fadeOut 0.4s ease forwards;
+}
+
+.days.fade-in {
+    animation: fadeIn 0.4s ease forwards;
+}
+
+@keyframes slideOutToLeft {
+    to {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+}
+
+@keyframes slideOutToRight {
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* 日期格子样式 */
 .day {
     border-radius: 5px;
     padding: 10px;
     min-height: 80px;
     background-color: #f9f9f9;
-    position: relative;
     border: 1px solid #eee;
     transition: all 0.3s ease;
+    position: relative;
 }
 
 .day:hover {
@@ -80,77 +254,65 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.day.empty {
-    background-color: transparent;
-    border: none;
+.day.other-month {
+    color: #aaa;
+    background-color: #f0f0f0;
 }
 
-.tday {
-    background-color: #ffff99; /* 亮黄色背景 */
-    font-weight: bold; /* 加粗字体 */
+/* 今天样式 */
+.day.today {
+    background-color: #e1f5fe;
+    border: 2px solid #4CAF50;
 }
 
-.today {
-    background-color: #e1f5fe;  /* 浅蓝色背景 */
-    border: 2px solid #4CAF50;  /* 绿色边框 */
-    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+.day.today .solar-date {
+    font-weight: bold;
+    color: #2e7d32;
+}
+
+/* 日期文字样式 */
+.solar-date {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.lunar-date, .festival {
+    font-size: 12px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
 }
 
 .lunar-date {
-    font-size: 12px;
-    color: #888;
+    color: #666;
+    bottom: 5px;
 }
 
 .festival {
-    font-size: 12px;
     color: #e53935;
-    margin-top: 3px;
     font-weight: bold;
+    bottom: 5px;
 }
 
-.legend {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 20px;
-    gap: 15px;
-}
-
-.legend-item {
-    display: flex;
-    align-items: center;
-    font-size: 14px;
-}
-
-.legend-color {
-    display: inline-block;
-    width: 15px;
-    height: 15px;
-    margin-right: 5px;
-    border-radius: 3px;
-}
-
-.legend-color.solar {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-}
-
-.legend-color.lunar {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-}
-
-.legend-color.festival {
-    background-color: #ffebee;
-    border: 1px solid #e53935;
-}
-
-.legend-color.today {
-    background-color: #e1f5fe;
-    border: 1px solid #4CAF50;
-}
-
+/* 响应式设计 */
 @media (max-width: 600px) {
+    .calendar-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .navigation {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .navigation button {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+    
     .day {
         min-height: 60px;
         padding: 5px;
@@ -160,22 +322,28 @@ body {
         font-size: 14px;
     }
     
-    .lunar-date, .festival {
+    .lunar-date, .festival, .birthday {
         font-size: 10px;
     }
     
-    .calendar-header {
-        flex-direction: column;
-        gap: 10px;
+    .birthday {
+        bottom: 15px;
     }
     
-    .navigation {
-        display: flex;
-        gap: 5px;
+    .week-indicator {
+        font-size: 14px;
+        padding: 6px;
     }
     
-    .navigation button {
-        padding: 6px 12px;
-        font-size: 12px;
+    @keyframes slideInFromLeft {
+        from {
+            transform: translateX(-30%);
+        }
+    }
+    
+    @keyframes slideInFromRight {
+        from {
+            transform: translateX(30%);
+        }
     }
 }
