@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025中考加油 | 青春无悔</title>
+    <link rel="stylesheet" href="中考加油.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1>2025中考加油</h1>
+                <p class="subtitle">青春赛场 · 梦想起航</p>
+                <div class="header-image">
+                    <img src="https://img.freepik.com/free-vector/hand-drawn-student-background_23-2149464866.jpg" alt="中考加油">
+                </div>
+            </div>
+        </header>
+        
+        <main>
+            <section class="countdown-section">
+                <h2><i class="fas fa-clock"></i> 中考倒计时</h2>
+                <div class="countdown">
+                    <div class="countdown-item">
+                        <span id="days">000</span>
+                        <span>天</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="hours">00</span>
+                        <span>小时</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="minutes">00</span>
+                        <span>分</span>
+                    </div>
+                </div>
+                <p class="countdown-note">*2025年中考时间预计为6月中旬</p>
+            </section>
+            
+            <section class="motivation-section">
+                <div class="motivation-card">
+                    <h3><i class="fas fa-quote-left"></i> 今日励志语</h3>
+                    <p class="quote" id="quote">初中三年磨一剑，中考场上试锋芒！</p>
+                    <button id="new-quote"><i class="fas fa-sync-alt"></i> 换一句鼓励</button>
+                </div>
+            </section>
+            
+            <section class="tips-section">
+                <h2><i class="fas fa-lightbulb"></i> 中考备考指南</h2>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <i class="fas fa-brain"></i>
+                        <h4>复习策略</h4>
+                        <ul>
+                            <li>制定每日学习计划</li>
+                            <li>重点突破薄弱科目</li>
+                            <li>整理错题本</li>
+                        </ul>
+                    </div>
+                    <div class="tip-card">
+                        <i class="fas fa-heart"></i>
+                        <h4>心态调整</h4>
+                        <ul>
+                            <li>保持适度紧张</li>
+                            <li>每天适量运动</li>
+                            <li>与家人老师沟通</li>
+                        </ul>
+                    </div>
+                    <div class="tip-card">
+                        <i class="fas fa-utensils"></i>
+                        <h4>生活作息</h4>
+                        <ul>
+                            <li>保证7-8小时睡眠</li>
+                            <li>均衡饮食营养</li>
+                            <li>调整考试生物钟</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="subject-section">
+                <h2><i class="fas fa-book-open"></i> 科目备考要点</h2>
+                <div class="subject-tabs">
+                    <button class="tab-button active" data-subject="chinese">语文</button>
+                    <button class="tab-button" data-subject="math">数学</button>
+                    <button class="tab-button" data-subject="english">英语</button>
+                    <button class="tab-button" data-subject="physics">物理</button>
+                    <button class="tab-button" data-subject="chemistry">化学</button>
+                </div>
+                <div class="subject-content" id="chinese">
+                    <h3>语文备考建议</h3>
+                    <ul>
+                        <li>熟记古诗文重点句</li>
+                        <li>掌握现代文阅读技巧</li>
+                        <li>积累作文素材</li>
+                        <li>练习书写速度</li>
+                    </ul>
+                </div>
+                <div class="subject-content hidden" id="math">
+                    <h3>数学备考建议</h3>
+                    <ul>
+                        <li>夯实基础概念</li>
+                        <li>总结解题思路</li>
+                        <li>控制答题时间</li>
+                        <li>检查计算过程</li>
+                    </ul>
+                </div>
+                <div class="subject-content hidden" id="english">
+                    <h3>英语备考建议</h3>
+                    <ul>
+                        <li>强化高频词汇</li>
+                        <li>练习听力技巧</li>
+                        <li>掌握作文模板</li>
+                        <li>熟悉语法要点</li>
+                    </ul>
+                </div>
+                <div class="subject-content hidden" id="physics">
+                    <h3>物理备考建议</h3>
+                    <ul>
+                        <li>理解公式推导</li>
+                        <li>分析典型例题</li>
+                        <li>注意单位换算</li>
+                        <li>规范答题格式</li>
+                    </ul>
+                </div>
+                <div class="subject-content hidden" id="chemistry">
+                    <h3>化学备考建议</h3>
+                    <ul>
+                        <li>熟记化学方程式</li>
+                        <li>掌握实验操作要点</li>
+                        <li>理解物质性质</li>
+                        <li>注意计算精度</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <div class="footer-content">
+                <p>© 2024-2025 中考加油网 | 祝2025届考生金榜题名！</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-weixin"></i></a>
+                    <a href="#"><i class="fab fa-qq"></i></a>
+                    <a href="#"><i class="fab fa-weibo"></i></a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="中考加油.js"></script>
+</body>
+</html>
