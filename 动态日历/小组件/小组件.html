@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>周视图日历</title>
+    <link rel="stylesheet" href="小组件.css">
+</head>
+<body>
+    <div class="calendar-container">
+        <div class="calendar-header">
+            <div class="header-left">
+                <h1 id="current-year-month"></h1>
+            </div>
+            <!-- 修改周视图.html的header-right部分 -->
+            <div class="header-right">
+                <div class="countdown" id="festival-countdown"></div>
+            </div>
+        </div>
+        
+        <div class="category-tabs">
+            <div class="category-tab active" data-tab="festival">节日</div>
+            <div class="category-tab" data-tab="constellation">星座</div>
+            <div class="category-tab" data-tab="auspicious">宜忌</div>
+        </div>
+        
+        <div class="category-content active" id="festival-content"></div>
+        <div class="category-content" id="constellation-content"></div>
+        <div class="category-content" id="auspicious-content"></div>
+        
+        <div class="calendar-grid-container">
+            <div class="weekdays">
+                <div>日</div>
+                <div>一</div>
+                <div>二</div>
+                <div>三</div>
+                <div>四</div>
+                <div>五</div>
+                <div>六</div>
+            </div>
+            
+            <div class="days" id="calendar-days"></div>
+        </div>
+        
+        <div class="view-more-container">
+            <button id="view-more">查看更多</button>
+        </div>
+        <script>
+        document.getElementById('view-more').addEventListener('click', function() {
+            window.open('https://www.msn.cn/zh-cn/lifestyle/calendar?ocid=winp2fp&cvid=33cae0c4a29743a3aef18ab1198189af', '_blank');
+        });
+        </script>
+    </div>
+    
+    <script src="农历计算.js"></script>
+    <script src="小组件.js"></script>
+</body>
+</html>

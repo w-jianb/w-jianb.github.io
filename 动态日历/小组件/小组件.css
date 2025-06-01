@@ -1,0 +1,234 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #171717;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.calendar-container {
+    background: linear-gradient(45deg, #333333, #2C5151);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 275px;
+    padding: 13px;
+    overflow: hidden;
+}
+
+.calendar-grid-container {
+    background-color: #3F3F3F;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 7.5px;
+    gap: 10px;
+}
+
+.header-left {
+    flex: 1;
+    text-align: left;
+}
+
+.header-right {
+    flex: 1;
+    text-align: right;
+}
+
+.countdown {
+    font-size: 12px;
+    color: #FFD700;
+    font-weight: bold;
+    line-height: 1.3;
+}
+
+.calendar-header h1 {
+    margin: 0;
+    color: #333;
+    font-size: 24px;
+    transition: all 0.3s ease;
+    text-align: left;
+    width: 200px;
+}
+
+.calendar-header .year {
+    font-size: 15px;
+    display: block;
+    margin-bottom: 5px;
+    color: #21BDB4;
+    text-align: left;
+}
+
+.calendar-header .month-day-week {
+    font-size: 20px;
+    display: block;
+    font-weight: bold;
+    color: transparent; /* 使文字颜色透明，以便背景渐变色能够显示 */
+    text-align: left;
+    margin-left: 5px;
+    background-image: linear-gradient(to right, #41fff6, #037e78); /* 创建线性渐变背景 */
+    -webkit-background-clip: text; /* 将背景裁剪到文本 */
+    background-clip: text; /* 标准属性，用于裁剪背景到文本 */
+}
+
+.category-tabs {
+    display: flex;
+    justify-content: left;
+    margin-bottom: 5px;
+    background-color: #2C5151;
+    border-radius: 30px;
+    width: 130px;
+    height: 23px;
+}
+
+.category-tab {
+    padding: 3.5px 9px;
+    color: #9b9b9b;
+    cursor: pointer;
+    font-size: 12.5px;
+    font-weight: bold;
+    transition: all 0.3s;
+    border-radius: 30px;
+}
+
+.category-tab.active {
+    color: #21BDB4;
+    background-color: rgba(33, 189, 180, 0.2);
+}
+
+.category-content {
+    display: none;
+    margin-bottom: 5px;
+    color: #8C8484;
+    font-size: 12px;
+    min-height: 15px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #3F3F3F;
+}
+
+.category-content.active {
+    display: block;
+}
+
+.view-more-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+#view-more {
+    background-color: #21BDB4;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s;
+    width: 100%;
+}
+
+#view-more:hover {
+    background-color: #18817B;
+    transform: translateY(-2px);
+}
+
+.weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    color: #c7c6c6;
+    padding: 8px 0;
+    font-size: 14px;
+}
+
+.days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    padding: 5px;
+}
+
+.day {
+    border-radius: 5px;
+    padding: 8px 0;
+    min-height: 40px;
+    background-color: #3F3F3F;
+    position: relative;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2px;
+}
+
+.day.today {
+    background: linear-gradient(45deg, #18817B, #04A39A);
+}
+
+.day.today .solar-date {
+    font-weight: bold;
+    color: #ffffff;
+}
+.day.today .lunar-date, 
+.day.today .festival {
+    color: #ffffff;
+}
+
+.day.today .birthday {
+    color: #2bff00;
+}
+
+.solar-date {
+    color: #8C8484;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    line-height: 1.2;
+}
+
+.lunar-date, .festival {
+    font-size: 10px;
+    color: #666;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    position: static;
+    line-height: 1.2;
+}
+
+.festival {
+    order: 1;
+}
+
+.birthday {
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 10px;
+    color: #21BDB4;
+    font-weight: bold;
+    line-height: 1.2;
+    gap: 1px;
+}
+
+.birthday-name {
+    order: 1;
+}
+
+.birthday-cake {
+    order: 2;
+    font-size: 10px;
+}
