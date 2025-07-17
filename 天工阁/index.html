@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天工阁 - 科技改变生活</title>
+    <link rel="icon" href="天工阁.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 粒子背景 -->
+    <div id="particles-js"></div>
+    
+    <!-- 导航栏 -->
+    <nav>
+        <div class="logo">
+            <i class="fas fa-gamepad"></i>
+            <span>天工阁</span>
+        </div>
+        <div class="nav-links">
+            <a href="#" class="nav-link active" data-page="home">首页</a>
+            <a href="#" class="nav-link" data-page="games">游戏攻略</a>
+            <a href="#" class="nav-link" data-page="tools">实用工具</a>
+            <a href="#" class="nav-link" data-page="life">日志</a>
+            <a href="#" class="nav-link" data-page="about">关于我们</a>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="搜索内容...">
+            <i class="fas fa-search"></i>
+        </div>
+        <div class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+    
+    <!-- 移动端菜单 -->
+    <div class="mobile-menu">
+        <a href="#" class="nav-link active" data-page="home">首页</a>
+        <a href="#" class="nav-link" data-page="games">游戏攻略</a>
+        <a href="#" class="nav-link" data-page="tools">实用工具</a>
+        <a href="#" class="nav-link" data-page="life">日志</a>
+        <a href="#" class="nav-link" data-page="about">关于我们</a>
+    </div>
+    
+    <!-- 主内容区 -->
+    <div class="container">
+        <!-- 首页 -->
+        <div id="home" class="page active">
+            <div class="hero">
+                <h1>探索游戏世界 分享游戏乐趣</h1>
+                <p>天工阁是一个专注于游戏攻略分享、实用工具推荐和日志交流的科技平台，让游戏与生活完美融合</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-value">0</div>
+                        <div class="stat-label">游戏攻略</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">0</div>
+                        <div class="stat-label">实用工具</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">4</div>
+                        <div class="stat-label">社区成员</div>
+                    </div>
+                </div>
+            </div>
+            
+            <h2 class="section-title">热门游戏攻略</h2>
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-img" style="background: linear-gradient(45deg, #1a2a6c, #b21f1f, #001510);">
+                        <div class="card-tag">热门</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>《艾尔登法环》全BOSS打法指南</h3>
+                        <p>分享游戏中所有主要BOSS的打法技巧和装备推荐，助你轻松通关...</p>
+                        <div class="card-meta">
+                            <span><i class="far fa-user"></i> 游戏达人</span>
+                            <span class="days-ago" data-date="2023-09-12"><i class="far fa-clock"></i> 2天前</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-img" style="background: linear-gradient(45deg, #11998e, #38ef7d);">
+                        <div class="card-tag">更新</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>《原神》4.0版本全角色配装攻略</h3>
+                        <p>详细解析4.0版本所有角色的最佳武器、圣遗物搭配及阵容推荐...</p>
+                        <div class="card-meta">
+                            <span><i class="far fa-user"></i> 旅行者</span>
+                            <span class="days-ago" data-date="2023-09-12"><i class="far fa-clock"></i> 5天前</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-img" style="background: linear-gradient(45deg, #ff416c, #ff4b2b);">
+                        <div class="card-tag">新赛季</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>《Apex英雄》新赛季上分技巧</h3>
+                        <p>掌握这些地图点位和团队配合技巧，助你轻松达到大师段位...</p>
+                        <div class="card-meta">
+                            <span><i class="far fa-user"></i> 传奇玩家</span>
+                            <span class="days-ago" data-date="2023-09-12"><i class="far fa-clock"></i> 1周前</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="featured-section">
+                <div class="featured-content">
+                    <h2>游戏工具精选</h2>
+                    <p>我们精心挑选了最实用的游戏工具，帮助您提升游戏体验，优化游戏性能，记录精彩瞬间。</p>
+                    <ul class="featured-list">
+                        <li><i class="fas fa-check-circle"></i> 游戏性能优化工具</li>
+                        <li><i class="fas fa-check-circle"></i> 游戏截图与录像工具</li>
+                        <li><i class="fas fa-check-circle"></i> 游戏数据统计分析</li>
+                        <li><i class="fas fa-check-circle"></i> 社区交流平台</li>
+                    </ul>
+                    <button class="cta-button outline" data-page="tools">查看全部工具</button>
+                </div>
+                <div class="featured-image">
+                    <div class="glowing-circle"></div>
+                    <div class="glowing-circle"></div>
+                    <div class="glowing-circle"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 游戏攻略页面 -->
+        <div id="games" class="page">
+            <h1 class="section-title">游戏攻略分享</h1>
+            <p class="page-subtitle">探索最新游戏攻略、技巧和深度解析</p>
+            
+            <div class="filter-bar">
+                <div class="filter-option active">全部</div>
+                <div class="filter-option">热门</div>
+                <div class="filter-option">最新</div>
+                <div class="filter-option">PC游戏</div>
+                <div class="filter-option">主机游戏</div>
+                <div class="filter-option">手机游戏</div>
+            </div>
+            
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-img" style="background: linear-gradient(45deg, #1a2a6c, #b21f1f, #001510);">
+                        <div class="card-tag">热门</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>《艾尔登法环》全BOSS打法指南</h3>
+                        <p>分享游戏中所有主要BOSS的打法技巧和装备推荐，助你轻松通关...</p>
+                        <div class="card-meta">
+                            <span><i class="far fa-user"></i> 游戏达人</span>
+                            <span class="days-ago" data-date="2023-09-12"><i class="far fa-clock"></i> 2天前</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-img" style="background: linear-gradient(45deg, #11998e, #38ef7d);">
+                        <div class="card-tag">更新</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>《原神》4.0版本全角色配装攻略</h3>
+                        <p>详细解析4.0版本所有角色的最佳武器、圣遗物搭配及阵容推荐...</p>
+                        <div class="card-meta">
+                            <span><i class="far fa-user"></i> 旅行者</span>
+                            <span class="days-ago" data-date="2023-09-12"><i class="far fa-clock"></i> 计算中...</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-img" style="background: linear-gradient(45deg, #ff416c, #ff4b2b);">
+                        <div class="card-tag">新赛季</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>《Apex英雄》新赛季上分技巧</h3>
+                        <p>掌握这些地图点位和团队配合技巧，助你轻松达到大师段位...</p>
+                        <div class="card-meta">
+                            <span><i class="far fa-user"></i> 传奇玩家</span>
+                            <span class="days-ago" data-date="2023-09-12"><i class="far fa-clock"></i> 计算中...</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img" style="background: linear-gradient(45deg, #1a2a6c, #b21f1f);">
+                        <div class="card-tag">攻略</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>《赛博朋克2077》2.0版本全解析</h3>
+                        <p>全面分析2.0版本更新内容，包括技能树重做、警察系统改进和战斗机制变化...</p>
+                        <div class="card-meta">
+                            <span><i class="far fa-user"></i> 夜之城居民</span>
+                            <span class="days-ago" data-date="2023-09-12"><i class="far fa-clock"></i> 计算中...</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-img" style="background: linear-gradient(45deg, #0f2027, #203a43, #2c5364);">
+                        <div class="card-tag">指南</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>《星空》飞船建造完全指南</h3>
+                        <p>从基础零件到高级战舰，教你打造属于你的完美星际飞船...</p>
+                        <div class="card-meta">
+                            <span><i class="far fa-user"></i> 星际探索者</span>
+                            <span class="days-ago" data-date="2023-09-12"><i class="far fa-clock"></i> 计算中...</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-img" style="background: linear-gradient(45deg, #834d9b, #d04ed6);">
+                        <div class="card-tag">竞技</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>《英雄联盟》S13赛季下路生态分析</h3>
+                        <p>解析当前版本强势AD和辅助组合，掌握下路对线技巧...</p>
+                        <div class="card-meta">
+                            <span><i class="far fa-user"></i> 王者ADC</span>
+                            <span class="days-ago" data-date="2023-09-12"><i class="far fa-clock"></i> 计算中...</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-img" style="background: linear-gradient(45deg, #f46b45, #eea849);">
+                        <div class="card-tag">终局</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>《暗黑破坏神4》终局玩法深度解析</h3>
+                        <p>地狱狂潮、噩梦地下城、巅峰面板等终局内容全面指南...</p>
+                        <div class="card-meta">
+                            <span><i class="far fa-user"></i> 奈非天</span>
+                            <span class="days-ago" data-date="2023-09-12"><i class="far fa-clock"></i> 计算中...</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-img" style="background: linear-gradient(45deg, #141e30, #243b55);">
+                        <div class="card-tag">剧情</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>《最后生还者2》剧情深度解析</h3>
+                        <p>探讨游戏中的主题、人物动机和叙事结构，理解争议背后的设计...</p>
+                        <div class="card-meta">
+                            <span><i class="far fa-user"></i> 故事猎人</span>
+                            <span class="days-ago" data-date="2023-09-12"><i class="far fa-clock"></i> 计算中...</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-img" style="background: linear-gradient(45deg, #1d976c, #93f9b9);">
+                        <div class="card-tag">新手</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>《王国之泪》新手入门完全指南</h3>
+                        <p>从基础操作到高级技巧，帮助新玩家快速上手这款开放世界大作...</p>
+                        <div class="card-meta">
+                            <span><i class="far fa-user"></i> 海拉鲁勇士</span>
+                            <span class="days-ago" data-date="2023-09-12"><i class="far fa-clock"></i> 计算中...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 实用工具页面 -->
+        <div id="tools" class="page">
+            <h1 class="section-title">实用工具推荐</h1>
+            <p class="page-subtitle">提升游戏体验的必备工具和软件</p>
+            
+            <div class="tool-grid">
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3>性能监控工具</h3>
+                    <p>实时监控游戏帧率、CPU/GPU使用率和温度，优化游戏性能</p>
+                    <div class="tool-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>4.5</span>
+                    </div>
+                    <button class="cta-button">下载</button>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-keyboard"></i>
+                    </div>
+                    <h3>宏命令编辑器</h3>
+                    <p>创建复杂的按键宏和脚本，自动化重复操作，提升游戏效率</p>
+                    <div class="tool-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <span>4.0</span>
+                    </div>
+                    <button class="cta-button">下载</button>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>游戏录制工具</h3>
+                    <p>高质量录制游戏画面，低性能占用，支持4K分辨率和HDR</p>
+                    <div class="tool-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>5.0</span>
+                    </div>
+                    <button class="cta-button">下载</button>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>语音交流助手</h3>
+                    <p>智能降噪、语音变声和团队通信管理，提升多人游戏体验</p>
+                    <div class="tool-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>4.5</span>
+                    </div>
+                    <button class="cta-button">下载</button>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>数据统计工具</h3>
+                    <p>详细分析你的游戏表现，生成可视化报告，帮助提升技术水平</p>
+                    <div class="tool-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <span>4.0</span>
+                    </div>
+                    <button class="cta-button">下载</button>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-plug"></i>
+                    </div>
+                    <h3>跨平台连接器</h3>
+                    <p>打破平台壁垒，实现PC、主机和移动设备之间的互联互通</p>
+                    <div class="tool-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <i class="far fa-star"></i>
+                        <span>3.5</span>
+                    </div>
+                    <button class="cta-button">下载</button>
+                </div>
+            </div>
+            
+            <div class="tool-categories">
+                <h3>按类别浏览工具</h3>
+                <div class="categories-grid">
+                    <div class="category-card">
+                        <i class="fas fa-microchip"></i>
+                        <h4>性能优化</h4>
+                    </div>
+                    <div class="category-card">
+                        <i class="fas fa-broadcast-tower"></i>
+                        <h4>网络加速</h4>
+                    </div>
+                    <div class="category-card">
+                        <i class="fas fa-users"></i>
+                        <h4>社交交流</h4>
+                    </div>
+                    <div class="category-card">
+                        <i class="fas fa-chart-bar"></i>
+                        <h4>数据分析</h4>
+                    </div>
+                    <div class="category-card">
+                        <i class="fas fa-camera"></i>
+                        <h4>截图录像</h4>
+                    </div>
+                    <div class="category-card">
+                        <i class="fas fa-cog"></i>
+                        <h4>系统工具</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 日志页面 -->
+        <div id="life" class="page">
+            <h1 class="section-title">日志记录</h1>
+            <p class="page-subtitle">记录日常点滴与思考</p>
+            
+            <div class="post">
+                <div class="post-header">
+                    <div class="avatar" style="background: linear-gradient(45deg, #ff9966, #ff5e62);">GL</div>
+                    <div class="post-info">
+                        <h3>天工阁网站建设</h3>
+                        <div class="post-date">2025年7月17日 - 22:20</div>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <p>「天工巧筑，匠心传承」
+尊敬的访客，您好！
+历经精心筹备，「天工阁」今日正式启幕。这里是一座融合传统匠心与现代创意的数字殿堂，无论是工艺之美、设计之思，还是文化之韵，我们都愿以诚意与热爱为您呈现。
+「天工」之名，取自巧夺天工，寓意对极致之道的追求；「阁」之一隅，则愿为志同道合者提供交流与探索的天地。未来，我们将持续分享优质内容、策划主题活动，期待与您共同成长。
+感恩相遇，诚邀您驻足探索。如有建议，亦盼不吝赐教。</p>
+                    <div class="post-image" style="background: linear-gradient(45deg, #24243e, #302b63);"></div>
+                    <p>—— 天工阁 敬上</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 关于我们页面 -->
+        <div id="about" class="page">
+            <h1 class="section-title">关于 天工阁</h1>
+            <p class="page-subtitle">连接游戏与生活的科技平台</p>
+            
+            <div class="about-content"> 
+                <div class="about-text">
+                    <h3>我们的使命</h3>
+                    <p>天工阁 成立于2025年，致力于为游戏爱好者创建一个集游戏攻略、实用工具和生活分享于一体的综合性平台。我们相信游戏不仅是娱乐方式，更是一种生活态度和文化表达。</p>
+                    
+                    <h3>平台特色</h3>
+                    <ul class="featured-list">
+                        <li><i class="fas fa-check-circle"></i> 高质量游戏攻略和技巧分享</li>
+                        <li><i class="fas fa-check-circle"></i> 精选游戏工具和资源推荐</li>
+                        <li><i class="fas fa-check-circle"></i> 活跃的游戏生活社区</li>
+                    </ul>
+                    
+                    <h3>加入我们</h3>
+                    <p>无论你是硬核玩家、休闲玩家还是游戏开发者，天工阁都欢迎你的加入。分享你的游戏攻略、开发实用工具，或者讲述你的游戏生活故事。</p>
+                    <button class="cta-button">加入社区</button>
+                </div>
+                <div class="about-image">
+                    <div class="hexagon"></div>
+                    <div class="hexagon"></div>
+                    <div class="hexagon"></div>
+                </div>
+            </div>
+            
+            <div class="team-section">
+                <h2>核心团队</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-avatar" style="background: linear-gradient(45deg, #ff9966, #ff5e62);">HT</div>
+                        <h4>海棠</h4>
+                        <p>创始人</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-avatar" style="background: linear-gradient(45deg, #2193b0, #6dd5ed);">WJB</div>
+                        <h4>网建博</h4>
+                        <p>技术总监</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-avatar" style="background: linear-gradient(45deg, #834d9b, #d04ed6);">DS</div>
+                        <h4>deepseek</h4>
+                        <p>内容总监</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-avatar" style="background: linear-gradient(45deg, #11998e, #38ef7d);">CH</div>
+                        <h4>cch</h4>
+                        <p>凑数的</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 页脚 -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>关于天工阁</h3>
+                <p>天工阁是一个由游戏爱好者创建的分享平台，致力于为玩家提供高质量的游戏攻略、实用工具和日志分享。</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-discord"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>快速链接</h3>
+                <ul class="footer-links">
+                    <li><a href="#" data-page="home">首页</a></li>
+                    <li><a href="#" data-page="games">游戏攻略</a></li>
+                    <li><a href="#" data-page="tools">实用工具</a></li>
+                    <li><a href="#" data-page="life">日志</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>核心团队</h3>
+                <ul class="footer-links">
+                    <li><a href="#">海棠</a></li>
+                    <li><a href="#">网建博</a></li>
+                    <li><a href="#">deepseek</a></li>
+                    <li><a href="#">cch</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>联系我们</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-envelope"></i> *******@***.com</li>
+                    <li><i class="fas fa-phone"></i> +86 *** **** ****</li>
+                    <li><i class="fas fa-map-marker-alt"></i> *********</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            &copy; 2025 天工阁 游戏生活分享平台. 保留所有权利。
+        </div>
+    </footer>
+    
+    <!-- JavaScript文件 -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
