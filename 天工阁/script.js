@@ -68,6 +68,106 @@ particlesJS("particles-js", {
     retina_detect: true
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = document.querySelector('.nav-links');
+    const links = document.querySelectorAll('.nav-link');
+    const hoverLine = document.createElement('div');
+    hoverLine.className = 'nav-hover-line';
+    navLinks.appendChild(hoverLine);
+    
+    // 跟踪当前状态
+    let isHovering = false;
+    let currentTarget = null;
+    
+    // 初始化横线位置
+    const activeLink = document.querySelector('.nav-link.active');
+    if (activeLink) {
+        updateHoverLine(activeLink, true);
+        currentTarget = activeLink;
+    }
+    
+    // 鼠标在导航栏上移动时
+    navLinks.addEventListener('mousemove', function(e) {
+        isHovering = true;
+        const closestLink = findClosestLink(e.clientX);
+        if (closestLink && closestLink !== currentTarget) {
+            currentTarget = closestLink;
+            updateHoverLine(closestLink);
+        }
+    });
+    
+    // 鼠标离开导航栏时
+    navLinks.addEventListener('mouseleave', function() {
+        isHovering = false;
+        const activeLink = document.querySelector('.nav-link.active');
+        if (activeLink && currentTarget !== activeLink) {
+            currentTarget = activeLink;
+            // 添加一个小的延迟确保过渡效果可见
+            setTimeout(() => {
+                updateHoverLine(activeLink);
+            }, 50);
+        }
+    });
+    
+    // 点击链接时
+    links.forEach(link => {
+        link.addEventListener('click', function() {
+            links.forEach(l => l.classList.remove('active'));
+            this.classList.add('active');
+            currentTarget = this;
+            updateHoverLine(this, true);
+        });
+    });
+    
+    // 找到距离鼠标最近的链接
+    function findClosestLink(mouseX) {
+        let closestLink = null;
+        let smallestDistance = Infinity;
+        
+        links.forEach(link => {
+            const rect = link.getBoundingClientRect();
+            const linkCenter = rect.left + rect.width / 2;
+            const distance = Math.abs(mouseX - linkCenter);
+            
+            if (distance < smallestDistance) {
+                smallestDistance = distance;
+                closestLink = link;
+            }
+        });
+        
+        return closestLink;
+    }
+    
+    // 更新横线位置
+    function updateHoverLine(element, immediate = false) {
+        const rect = element.getBoundingClientRect();
+        const navRect = navLinks.getBoundingClientRect();
+        
+        if (immediate) {
+            hoverLine.style.transition = 'none';
+        } else {
+            hoverLine.style.transition = 'all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+        }
+        
+        hoverLine.style.width = `${rect.width}px`;
+        hoverLine.style.left = `${rect.left - navRect.left}px`;
+        
+        // 强制重绘以确保过渡效果
+        if (immediate) {
+            void hoverLine.offsetWidth; // 触发重绘
+            hoverLine.style.transition = 'all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+        }
+    }
+    
+    // 窗口大小改变时重新计算位置
+    window.addEventListener('resize', function() {
+        const target = isHovering ? currentTarget : document.querySelector('.nav-link.active');
+        if (target) {
+            updateHoverLine(target, true);
+        }
+    });
+});
+
 // 页面切换功能
 document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', function(e) {
