@@ -2,7 +2,7 @@
 const gaokaoDate = new Date();
 gaokaoDate.setMonth(5); // 6月 (0-11)
 gaokaoDate.setDate(7);
-gaokaoDate.setHours(9, 0, 0, 0); // 设置为9点
+gaokaoDate.setHours(9, 0, 0, 0); // 设置为8点
 
 // 如果今年高考已过，设置为明年高考
 if (gaokaoDate < new Date()) {
@@ -51,36 +51,25 @@ const quotes = [
     "像登山者丈量云的高度，你笔下的答案正攀向属于自己的峰顶。",
     "风会记住每一页翻动的声响，连同你指尖未凉的梦想。",
     "笔尖划破晨曦的薄雾，每一道墨痕都是未来的刻度。",
-    {
-        type: 'poem',
-        content: `《致高考的你》
-
-笔锋划过纸页的沙沙声，
-是六月最清澈的誓言。
-那些熬过的夜、翻皱的书，
-终将化作考卷上翩跹的蝶。
-
-不必数倒计时的刻度，
-星辰早已为赶路人引路。
-若紧张是掌心的汗，
-就把它捏成勇气的盐。
-
-考题或许如群山巍峨，
-但你的目光比峰顶更灼热。
-当合上笔盖的刹那，
-会有侠客收剑入鞘的洒脱。`
-    }
+    `《致高考的你》
+        笔锋划过纸页的沙沙声，
+        是六月最清澈的誓言。
+        那些熬过的夜、翻皱的书，
+        终将化作考卷上翩跹的蝶。
+        不必数倒计时的刻度，
+        星辰早已为赶路人引路。
+        若紧张是掌心的汗，
+        就把它捏成勇气的盐。
+        考题或许如群山巍峨，
+        但你的目光比峰顶更灼热。
+        当合上笔盖的刹那，
+        会有侠客收剑入鞘的洒脱。`
 ];
 
 // 随机获取励志名言
 function getRandomQuote() {
     const randomIndex = Math.floor(Math.random() * quotes.length);
-    const quote = quotes[randomIndex];
-    
-    if (typeof quote === 'object' && quote.type === 'poem') {
-        return quote.content;
-    }
-    return quote;
+    return quotes[randomIndex];
 }
 
 // 初始化
@@ -90,14 +79,5 @@ setInterval(updateCountdown, 10); // 每10毫秒更新一次，使毫秒显示�
 
 // 点击换一句鼓励
 document.getElementById('new-quote').addEventListener('click', function() {
-    const quoteElement = document.getElementById('quote');
-    const quote = getRandomQuote();
-    
-    if (typeof quotes.find(q => q.content === quote) === 'object') {
-        quoteElement.style.whiteSpace = 'pre-line';
-    } else {
-        quoteElement.style.whiteSpace = 'normal';
-    }
-    
-    quoteElement.textContent = quote;
+    document.getElementById('quote').textContent = getRandomQuote();
 });
